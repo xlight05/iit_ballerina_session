@@ -11,6 +11,10 @@ service "SummaryQueue" on new rabbitmq:Listener(rabbitmq:DEFAULT_HOST, rabbitmq:
 
     remote function onMessage(SummaryRequest entry) returns error? {
         final github:Client ghClient = check new ({auth: {token: entry.token}});
+        summaryDB[entry.uid] = {
+            uid: entry.uid,
+            summaries: {}
+        };
         stream<github:Repository, github:Error?> repos = check ghClient->getRepositories(entry.org, true);
         check from github:Repository repo in repos
             do {
