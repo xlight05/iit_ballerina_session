@@ -47,5 +47,7 @@ curl --location 'localhost:9092/onboard/status?uid=1abc'
 
 The objective is to write a ballerina HTTP client to connect to the onboard_agent HTTP service. You basically need to do the same thing as the above curl command but with ballerina.
 
-1. Create a ballerina package `bal new client`
+1. Checkout the code template in the `client` 
 2. Refer to the following example `https://ballerina.io/learn/by-example/http-client-send-request-receive-response/`
+3. Fill the TODOs in the `client/main.bal` file
+4. Reach out to instructors to claim your rewards!
